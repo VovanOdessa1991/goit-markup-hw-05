@@ -605,7 +605,7 @@ img {
   transition: opacity 300ms, visibility 300ms;
 }
 .backdrop.is-hidden .modal {
-  transform: skew(30deg) rotate(200deg) scale(0.2);
+  transform: skew(60deg) rotate(200deg) scale(0.2);
 }
 .modal {
   width: 528px;
