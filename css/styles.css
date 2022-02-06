@@ -1,4 +1,7 @@
 :root {
+  /* !backbrop */
+  --background-backdrop: #00000033;
+
   /* !SVG */
   --svg-first-color: #afb1b8;
   --svg-hover-color: #ffffff;
@@ -52,9 +55,9 @@
 }
 /*     !transition    */
 .transition {
-  transition: background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 2500ms cubic-bezier(0.4, 0, 0.2, 1), border-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 2500ms cubic-bezier(0.4, 0, 0.2, 1), transform 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*     !Body          */
 body {
@@ -591,4 +594,47 @@ img {
   line-height: 1.87;
   letter-spacing: 0.03em;
   text-align: left;
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-backdrop);
+  position: fixed;
+  top: 0;
+  transition: opacity 300ms, visibility 300ms;
+}
+.backdrop.is-hidden .modal {
+  transform: skew(30deg) rotate(200deg) scale(0.2);
+}
+.modal {
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--background-first-color);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(0) rotate(0) scale(1);
+
+  transition: transform 580ms;
+}
+
+.modal-close-button {
+  cursor: pointer;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  top: 8px;
+  right: 8px;
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
